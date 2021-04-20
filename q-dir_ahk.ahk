@@ -1,4 +1,11 @@
-#IFWINACTIVE AHK_CLASS ATL:00000001401A5900
+#IfWinActive ahk_class ATL:00000001401A5900
+; F1 as the hotkey to suspend and resume q-dir_ahk
+F1::
+    Suspend
+Pause,,1
+Return
+
+#IfWinActive ahk_class ATL:00000001401A5900
 ; 返回上一层级
 Left::
     ; Send BackSpace; 这种方式不行，不知道为什么
