@@ -1,5 +1,6 @@
 #IfWinActive ahk_class ATL:00000001401A5900
 ; F1 as the hotkey to suspend and resume q-dir_ahk
+; 解决问题：重命名文件夹和输入链接时，←和→被覆盖，导致移动光标出问题
 F1::
     Suspend
 Pause,,1
@@ -18,7 +19,6 @@ Return
 Right::
     Send {Enter}
 Return
-; TODO:重命名文件夹和输入链接时，←和→被覆盖，导致移动光标出问题
 
 #IfWinActive ahk_class ATL:00000001401A5900
 ; switch to left up panel
