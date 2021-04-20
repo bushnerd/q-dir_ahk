@@ -16,7 +16,7 @@ Return
 #IfWinActive ahk_class ATL:00000001401A5900
 ; switch to left up panel
 ; 使用ctrl无法正常工作, 改用alt更加顺手
-!Left::
+!Up::
     Send, {LControl Down}
     Send, {1 Down}
     Send, {1 Up}
@@ -25,7 +25,7 @@ Return
 
 ; switch to right up panel
 #IfWinActive ahk_class ATL:00000001401A5900
-!Up::
+!End::
     Send, {LControl Down}
     Send, {2 Down}
     Send, {2 Up}
