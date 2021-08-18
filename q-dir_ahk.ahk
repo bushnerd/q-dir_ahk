@@ -78,10 +78,19 @@ Return
 Return
 
 ; Ctrl+q, menu Quick-links
-#IfWinActive ahk_class ATL:00000001401A5900
+#If WinActive("ahk_class ATL:00000001401A5900") and (state = "Normal")
 End::
     Send, {LControl Down}
     Send, {q Down}
     Send, {q Up}
+    Send, {LControl Up}
+Return
+
+; CTRL+Num+, autosize columns
+#If WinActive("ahk_class ATL:00000001401A5900") and (state = "Normal")
+PgDn::
+    Send, {LControl Down}
+    Send, {NumpadAdd Down}
+    Send, {NumpadAdd Up}
     Send, {LControl Up}
 Return

@@ -8,5 +8,6 @@ A tiny ahk script to imporve efficiency greatly!
 |  → | Enter  | Enter the folder or open/launch the file |
 |  Alt+Up/End/Down/Right  | Ctrl+1/2/3/4 | Switch between the four panels|
 | End | Ctrl+q | Menu Quick-Links |
+| PageDown | Ctrl+ Num+ | Autosize columns |
 
 build.bat build runable file which does not need autohotkey environment
