@@ -94,3 +94,10 @@ PgDn::
     Send, {NumpadAdd Up}
     Send, {LControl Up}
 Return
+
+; Simulate an event that clicking on the search box of TIM.exe.
+#If WinActive("ahk_exe TIM.EXE")
+^F::
+CoordMode,Mouse,Window
+MouseClick,left,123, 53
+Return
