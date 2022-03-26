@@ -98,6 +98,5 @@ Return
 ; Simulate an event that clicking on the search box of TIM.exe.
 #If WinActive("ahk_exe TIM.EXE")
 ^F::
-CoordMode,Mouse,Window
-MouseClick,left,123, 53
+ControlClick, x123 y53, ahk_exe TIM.EXE,, Left, 1
 Return
