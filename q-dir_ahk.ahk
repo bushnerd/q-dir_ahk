@@ -100,3 +100,13 @@ Return
 ^F::
 ControlClick, x123 y53, ahk_exe TIM.EXE,, Left, 1
 Return
+
+; VSCode with VSCode Vim Extension
+; code.exe
+; Simulate an event that switch input method between en/cn in QQpinyin or sogoupinyin
+; TODO:Insert模式下，退出到Normal正常，但是从Visual模式下退出时不应该再发送Shift按键，但是没有办法判断
+; #If WinActive("ahk_exe code.exe")
+; ~Esc::
+;     Send, {LShift Down}
+;     Send, {LShift Up}
+; Return
