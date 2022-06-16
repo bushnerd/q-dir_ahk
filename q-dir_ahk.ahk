@@ -101,6 +101,12 @@ Return
 ControlClick, x123 y53, ahk_exe TIM.EXE,, Left, 1
 Return
 
+; Simulate an event that clicking on the search box of OneMessage.exe.
+#If WinActive("ahk_exe OneMessage.exe")
+    ^F::
+    ControlClick, x100 y45, ahk_exe OneMessage.exe,, Left, 1
+Return
+
 ; VSCode with VSCode Vim Extension
 ; code.exe
 ; Simulate an event that switch input method between en/cn in QQpinyin or sogoupinyin
