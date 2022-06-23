@@ -107,6 +107,15 @@ Return
     ControlClick, x100 y45, ahk_exe OneMessage.exe,, Left, 1
 Return
 
+; Simulate an event that close the window
+#If WinActive("ahk_exe OneMessage.exe")
+ESC::
+Send, {LAlt Down}
+Send, {F4 Down}
+Send, {F4 Up}
+Send, {LAlt Up}
+Return
+
 ; VSCode with VSCode Vim Extension
 ; code.exe
 ; Simulate an event that switch input method between en/cn in QQpinyin or sogoupinyin
