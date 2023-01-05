@@ -20,8 +20,8 @@ Return
 Return
 
 #IfWinActive ahk_exe Q-Dir_x64.exe
-    ; F1 as the hotkey to suspend and resume q-dir_ahk
-    F1::
+    ; Alt+PrintScreen as the hotkey to suspend and resume q-dir_ahk
+    !PrintScreen::
         Suspend
         Pause,,1
     Return
