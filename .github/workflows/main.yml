@@ -1,0 +1,55 @@
+name: Ahk2Exe
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: ["master"]
+
+  pull_request:
+    branches: ["master"]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        
+      - name: Compile with Ahk2Exe
+        uses: cennis91/action-ahk2exe@main
+        id: ahk2exe
+        with:
+          in: q-dir_ahk.ahk
+          out: out/q-dir_ahk.exe
+              
+      - uses: actions/upload-artifact@v2
+        with:
+          name: app
+          path: out/q-dir_ahk.exe
+      - name: create release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.run_number }}
+          release_name: Release ${{ github.run_number }}
+          body: |
+            Release
+          draft: false
+          prerelease: false
+
+      - name: Upload release asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: out/q-dir_ahk.exe
+          asset_name: q-dir_ahk.exe
+          asset_content_type: application/vnd.microsoft.portable-executable
