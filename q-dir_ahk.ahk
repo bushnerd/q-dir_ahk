@@ -125,3 +125,7 @@ Return
 ;     Send, {LShift Down}
 ;     Send, {LShift Up}
 ; Return
+
+#If WinActive("ahk_exe Obsidian.exe") or ("ahk_exe code.exe")
+    ^Space::#Space
+Return
