@@ -126,6 +126,14 @@ Return
 ;     Send, {LShift Up}
 ; Return
 
-#If WinActive("ahk_exe Obsidian.exe") or ("ahk_exe code.exe")
-    ^Space::#Space
-Return
+; #If WinActive("ahk_exe Obsidian.exe") or ("ahk_exe code.exe")
+;     ^Space::#Space
+; Return
+
+!s::
+if WinExist("ahk_exe Telegram.exe") {
+	WinClose , ahk_exe Telegram.exe
+} else {
+	run "D:\scoop\apps\telegram\current\Telegram.exe"
+}
+return
