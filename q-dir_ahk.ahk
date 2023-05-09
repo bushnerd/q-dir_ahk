@@ -98,13 +98,13 @@ Return
 ; Simulate an event that clicking on the search box of TIM.exe.
 #If WinActive("ahk_exe TIM.EXE")
 ^F::
-ControlClick, x123 y53, ahk_exe TIM.EXE,, Left, 1
+ControlClick, x200 y80, ahk_exe TIM.EXE,, Left, 1
 Return
 
 ; Simulate an event that clicking on the search box of OneMessage.exe.
 #If WinActive("ahk_exe OneMessage.exe")
     ^F::
-    ControlClick, x100 y45, ahk_exe OneMessage.exe,, Left, 1
+    ControlClick, x200 y50, ahk_exe OneMessage.exe,, Left, 1
 Return
 
 ; Simulate an event that close the window
