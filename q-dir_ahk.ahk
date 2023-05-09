@@ -52,7 +52,7 @@ Return
 
     ; switch to right up panel
     #If WinActive("ahk_exe Q-Dir_x64.exe") and (state = "Normal")
-    !End::
+    !+Shift::
     Send, {LControl Down}
     Send, {2 Down}
     Send, {2 Up}
@@ -79,7 +79,7 @@ Return
 
 ; Ctrl+q, menu Quick-links
 #If WinActive("ahk_exe Q-Dir_x64.exe") and (state = "Normal")
-End::
+RShift::
     Send, {LControl Down}
     Send, {q Down}
     Send, {q Up}
@@ -88,7 +88,7 @@ Return
 
 ; CTRL+Num+, autosize columns
 #If WinActive("ahk_exe Q-Dir_x64.exe") and (state = "Normal")
-PgDn::
+/::
     Send, {LControl Down}
     Send, {NumpadAdd Down}
     Send, {NumpadAdd Up}
