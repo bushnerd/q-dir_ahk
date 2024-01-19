@@ -100,7 +100,7 @@ Return
             Send, {LControl Up}
         Return
     } else {
-        !End::
+        End::
             Send, {LControl Down}
             Send, {q Down}
             Send, {q Up}
