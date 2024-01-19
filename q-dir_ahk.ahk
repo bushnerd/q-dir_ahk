@@ -52,7 +52,7 @@ Return
 
     ; switch to right up panel
     #If WinActive("ahk_exe Q-Dir_x64.exe") and (state = "Normal")
-    !End::
+    !+Shift::
     Send, {LControl Down}
     Send, {2 Down}
     Send, {2 Up}
@@ -79,7 +79,7 @@ Return
 
 ; Ctrl+q, menu Quick-links
 #If WinActive("ahk_exe Q-Dir_x64.exe") and (state = "Normal")
-End::
+RShift::
     Send, {LControl Down}
     Send, {q Down}
     Send, {q Up}
@@ -88,7 +88,7 @@ Return
 
 ; CTRL+Num+, autosize columns
 #If WinActive("ahk_exe Q-Dir_x64.exe") and (state = "Normal")
-PgDn::
+/::
     Send, {LControl Down}
     Send, {NumpadAdd Down}
     Send, {NumpadAdd Up}
@@ -98,13 +98,13 @@ Return
 ; Simulate an event that clicking on the search box of TIM.exe.
 #If WinActive("ahk_exe TIM.EXE")
 ^F::
-ControlClick, x123 y53, ahk_exe TIM.EXE,, Left, 1
+ControlClick, x200 y80, ahk_exe TIM.EXE,, Left, 1
 Return
 
 ; Simulate an event that clicking on the search box of OneMessage.exe.
 #If WinActive("ahk_exe OneMessage.exe")
     ^F::
-    ControlClick, x100 y45, ahk_exe OneMessage.exe,, Left, 1
+    ControlClick, x200 y50, ahk_exe OneMessage.exe,, Left, 1
 Return
 
 ; Simulate an event that close the window
