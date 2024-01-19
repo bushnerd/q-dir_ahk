@@ -4,6 +4,10 @@
 ; 添加当前状态判断
 ; 解决问题：重命名文件夹和输入链接时，←和→被覆盖，导致移动光标出问题
 
+; 无法获取当前的键盘布局，是84键，104键盘，笔记本布局
+; 根据主机名来判断当前的键盘布局
+currentComputerName := A_ComputerName
+
 state := "Normal"
 
 #If WinActive("ahk_exe Q-Dir_x64.exe") and (state = "Normal")
@@ -98,13 +102,21 @@ Return
 ; Simulate an event that clicking on the search box of TIM.exe.
 #If WinActive("ahk_exe TIM.EXE")
 ^F::
-ControlClick, x200 y80, ahk_exe TIM.EXE,, Left, 1
+    if (currentComputerName = "P14") {
+        ControlClick, x200 y80, ahk_exe TIM.EXE,, Left, 1
+    } else {
+        ControlClick, x123 y53, ahk_exe TIM.EXE,, Left, 1
+    }
 Return
 
 ; Simulate an event that clicking on the search box of OneMessage.exe.
 #If WinActive("ahk_exe OneMessage.exe")
     ^F::
-    ControlClick, x200 y50, ahk_exe OneMessage.exe,, Left, 1
+    if (currentComputerName = "P14") {
+        ControlClick, x200 y50, ahk_exe OneMessage.exe,, Left, 1
+    } else {
+        ControlClick, x100 y45, ahk_exe OneMessage.exe,, Left, 1
+    }
 Return
 
 ; Simulate an event that close the window
