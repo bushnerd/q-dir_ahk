@@ -56,12 +56,21 @@ Return
 
     ; switch to right up panel
     #If WinActive("ahk_exe Q-Dir_x64.exe") and (state = "Normal")
-    !+Shift::
-    Send, {LControl Down}
-    Send, {2 Down}
-    Send, {2 Up}
-    Send, {LControl Up}
-Return
+    if (currentComputerName = "P14") {
+        !+Shift::
+            Send, {LControl Down}
+            Send, {2 Down}
+            Send, {2 Up}
+            Send, {LControl Up}
+        Return
+    } else {
+        !End::
+            Send, {LControl Down}
+            Send, {2 Down}
+            Send, {2 Up}
+            Send, {LControl Up}
+        Return
+    }
 
 ; switch to left down panel
 #If WinActive("ahk_exe Q-Dir_x64.exe") and (state = "Normal")
@@ -83,21 +92,39 @@ Return
 
 ; Ctrl+q, menu Quick-links
 #If WinActive("ahk_exe Q-Dir_x64.exe") and (state = "Normal")
-RShift::
-    Send, {LControl Down}
-    Send, {q Down}
-    Send, {q Up}
-    Send, {LControl Up}
-Return
+    if (currentComputerName = "P14") {
+        RShift::
+            Send, {LControl Down}
+            Send, {q Down}
+            Send, {q Up}
+            Send, {LControl Up}
+        Return
+    } else {
+        !End::
+            Send, {LControl Down}
+            Send, {q Down}
+            Send, {q Up}
+            Send, {LControl Up}
+        Return
+    }
 
 ; CTRL+Num+, autosize columns
 #If WinActive("ahk_exe Q-Dir_x64.exe") and (state = "Normal")
-/::
-    Send, {LControl Down}
-    Send, {NumpadAdd Down}
-    Send, {NumpadAdd Up}
-    Send, {LControl Up}
-Return
+    if (currentComputerName = "P14") {
+        /::
+            Send, {LControl Down}
+            Send, {NumpadAdd Down}
+            Send, {NumpadAdd Up}
+            Send, {LControl Up}
+        Return
+    } else {
+        !PgDn:: 
+            Send, {LControl Down}
+            Send, {NumpadAdd Down}
+            Send, {NumpadAdd Up}
+            Send, {LControl Up}
+        Return
+    }
 
 ; Simulate an event that clicking on the search box of TIM.exe.
 #If WinActive("ahk_exe TIM.EXE")
