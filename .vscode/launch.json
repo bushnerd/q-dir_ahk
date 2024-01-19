@@ -1,0 +1,12 @@
+{
+    "configurations": [
+        {
+            "runtime": "D:/scoop/apps/autohotkey1.1/current/AutoHotkeyU64.exe",
+            "name": "AutoHotkey Debug",
+            "type": "autohotkey",
+            "request": "launch",
+            "program": "${file}",
+            "args": []
+        }
+    ]
+}
