@@ -155,6 +155,12 @@ Send, {F4 Up}
 Send, {LAlt Up}
 Return
 
+; Check if MuMuPlayer.exe is the active window
+#If WinActive("ahk_exe MuMuPlayer.exe")
+    ; Map right mouse button (RButton) to send Esc key
+    RButton::Send {Esc}
+Return
+
 ; VSCode with VSCode Vim Extension
 ; code.exe
 ; Simulate an event that switch input method between en/cn in QQpinyin or sogoupinyin
