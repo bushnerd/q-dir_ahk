@@ -175,7 +175,7 @@ Return
     ^Space::#Space
 Return
 
-!R::
+!1::
 if WinActive("ahk_exe Telegram.exe") {
 	WinClose , ahk_exe Telegram.exe
 } else {
