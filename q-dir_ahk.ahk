@@ -175,7 +175,7 @@ Return
     ^Space::#Space
 Return
 
-!1::
+!3::
 if WinActive("ahk_exe Telegram.exe") {
 	WinClose , ahk_exe Telegram.exe
 } else {
@@ -183,37 +183,9 @@ if WinActive("ahk_exe Telegram.exe") {
 }
 return
 
-; 这里会影响Esc键在其他程序中的使用，按代码来看，应该只有Telegram.exe活动的时候才对Esc做了映射的
-; if WinActive("ahk_exe Telegram.exe") 
-; Esc::
-; 	WinClose , ahk_exe Telegram.exe
-; Return
-
-; 针对Q-dir做的研究，后面可以继续扩展到Microsoft Terminal
-; 按下 Alt+1 隐藏窗口或将窗口调到最前面
-; !1::
-; #IfWinExist, ahk_exe Q-Dir_x64.exe
-;     if WinExist("ahk_exe Q-Dir_x64.exe") {
-;         if WinActive("ahk_exe Q-Dir_x64.exe") {
-;             WinHide
-;         } else {
-;             WinActivate
-;             WinShow
-;         }
-;     } else {
-;         Run, "D:\Programs\Q-Dir\Q-Dir_x64.exe"
-;     }
-; #IfWinExist
-; return
-
-; 按下 Alt+1 隐藏窗口
-; !1::
-; if WinExist("ahk_exe Q-Dir_x64.exe") {
-;     WinHide , ahk_exe Q-Dir_x64.exe
-; }
-; return
-
-; ; 按下 Alt+2 恢复窗口
-; !2::
-;     WinShow , ahk_exe Q-Dir_x64.exe
-; return
+!1::
+    if WinActive("ahk_exe thunderbird.exe")
+        WinMinimize, ahk_exe thunderbird.exe
+    else
+        Run, "D:\scoop\shims\thunderbird.exe"
+return
