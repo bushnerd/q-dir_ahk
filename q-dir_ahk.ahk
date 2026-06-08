@@ -90,6 +90,12 @@ Return
     Send, {LControl Up}
 Return
 
+; Ctrl+Tab maps to Ctrl+Right
+#If WinActive("ahk_exe Q-Dir_x64.exe") and (state = "Normal")
+    ^Tab::
+    Send, ^{Right}
+Return
+
 ; Ctrl+q, menu Quick-links
 #If WinActive("ahk_exe Q-Dir_x64.exe") and (state = "Normal")
     if (currentComputerName = "P14") {
