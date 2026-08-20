@@ -181,6 +181,9 @@ Return
     ^Space::#Space
 Return
 
+; 重置 #If 上下文，让后面的热键全局生效（之前的 #IfWinActive ahk_exe Q-Dir_x64.exe 需要显式关闭）
+#If
+
 !3::
 if WinActive("ahk_exe Telegram.exe") {
 	WinClose , ahk_exe Telegram.exe
@@ -189,7 +192,22 @@ if WinActive("ahk_exe Telegram.exe") {
 }
 return
 
+; scrcpy 窗口切换：最小化/恢复/启动
 !1::
+    if WinExist("ahk_exe scrcpy.exe") {
+        if WinActive("ahk_exe scrcpy.exe") {
+            WinMinimize, ahk_exe scrcpy.exe
+        } else {
+            WinRestore, ahk_exe scrcpy.exe
+            WinActivate, ahk_exe scrcpy.exe
+        }
+    } else {
+        Run, D:\github\dotfiles\scripts\o13.vbs
+    }
+return
+
+; Thunderbird 最小化/启动
+!4::
     if WinActive("ahk_exe thunderbird.exe")
         WinMinimize, ahk_exe thunderbird.exe
     else
