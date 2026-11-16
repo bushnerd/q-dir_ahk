@@ -193,7 +193,7 @@ if WinActive("ahk_exe Telegram.exe") {
 return
 
 ; scrcpy 窗口切换：最小化/恢复/启动
-!3::
+!1::
     if WinExist("ahk_exe scrcpy.exe") {
         if WinActive("ahk_exe scrcpy.exe") {
             WinMinimize, ahk_exe scrcpy.exe
